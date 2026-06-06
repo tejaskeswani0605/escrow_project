@@ -1,0 +1,29 @@
+[workspace]
+members = [
+    "programs/*",
+]
+resolver = "2"
+
+[workspace.dependencies]
+anchor-lang = { version = "1.0.2", features = ["init-if-needed"] }
+anchor-spl = "1.0.2"
+
+[profile.release]
+overflow-checks = true
+
+[package]
+name = "anchor-escrow-tests"
+version = "0.1.0"
+edition = "2021"
+
+[[test]]
+name = "anchor-litesvm-tests"
+path = "tests/anchor-litesvm-tests.rs"
+
+[dependencies]
+anchor-lang = { version = "1.0.2", features = ["init-if-needed", "idl-build"] }
+anchor-spl = { version = "1.0.2", features = ["idl-build"] }
+
+[dev-dependencies]
+solana-sdk = "~3.0"
+spl-token = "9.0.0"
